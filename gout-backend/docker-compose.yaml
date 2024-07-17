@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:16.3-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: gosuriya
+      POSTGRES_PASSWORD: 168
+      POSTGRES_DB: gout
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  lgtm:
+    image: grafana/otel-lgtm
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+      - "3000:3000"
+
+volumes:
+  pgdata:
+
+
