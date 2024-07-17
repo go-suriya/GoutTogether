@@ -1,0 +1,866 @@
+{
+	"info": {
+		"_postman_id": "9c6f1ab4-cdf6-49c8-90ad-95ada66d7879",
+		"name": "GoutTogether Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7653867"
+	},
+	"item": [
+		{
+			"name": "Tour",
+			"item": [
+				{
+					"name": "Register Tour Company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Mart Tour\",\n    \"username\": \"testtour\",\n    \"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/tour-companies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tour-companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approved Tour Company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/tour-companies/9/approve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tour-companies",
+								"9",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Tour",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tourCompanyId\": 9,\n    \"title\": \"Camping central BKK\",\n    \"location\": \"Siam Paragon\",\n    \"description\": \"Sleep outdoor\",\n    \"activityDate\": \"2024-07-06T03:00:00.000000Z\",\n    \"numberOfPeople\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/tours",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tours"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Tour",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tourCompanyId\": 9,\n    \"title\": \"Camping central BKK\",\n    \"location\": \"Siam Paragon\",\n    \"description\": \"Sleep outdoor\",\n    \"activityDate\": \"2024-07-06T03:00:00.000000Z\",\n    \"numberOfPeople\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/tours",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"tours"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost/api/v1/tours/8"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 04 Jul 2024 13:22:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"tourCompanyId\": {\n        \"id\": 9\n    },\n    \"title\": \"Camping central BKK\",\n    \"description\": \"Sleep outdoor\",\n    \"location\": \"Siam Paragon\",\n    \"numberOfPeople\": 10,\n    \"activityDate\": \"2024-07-06T03:00:00Z\",\n    \"status\": \"PENDING\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Tour Paging",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/tours?page=0&size=3&sortField=numberOfPeople&sortDirection=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tours"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "sortField",
+									"value": "numberOfPeople"
+								},
+								{
+									"key": "sortDirection",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Tour Paging",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/tours?page=0&size=3&sortField=numberOfPeople&sortDirection=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"tours"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "3"
+										},
+										{
+											"key": "sortField",
+											"value": "numberOfPeople"
+										},
+										{
+											"key": "sortDirection",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 04 Jul 2024 13:38:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"totalPages\": 3,\n    \"totalElements\": 8,\n    \"size\": 3,\n    \"content\": [\n        {\n            \"id\": 8,\n            \"tourCompanyId\": {\n                \"id\": 9\n            },\n            \"title\": \"Camping central BKK\",\n            \"description\": \"Sleep outdoor\",\n            \"location\": \"Siam Paragon\",\n            \"numberOfPeople\": 10,\n            \"activityDate\": \"2024-07-06T03:00:00Z\",\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": 7,\n            \"tourCompanyId\": {\n                \"id\": 9\n            },\n            \"title\": \"Camping central BKK\",\n            \"description\": \"Sleep outdoor\",\n            \"location\": \"Siam Paragon\",\n            \"numberOfPeople\": 20,\n            \"activityDate\": \"2024-07-06T03:00:00Z\",\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": 1,\n            \"tourCompanyId\": {\n                \"id\": 9\n            },\n            \"title\": \"Camping central BKK\",\n            \"description\": \"Sleep outdoor\",\n            \"location\": \"Siam Paragon\",\n            \"numberOfPeople\": 20,\n            \"activityDate\": \"2024-07-06T03:00:00Z\",\n            \"status\": \"PENDING\"\n        }\n    ],\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"last\": false,\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 3,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"numberOfElements\": 3,\n    \"empty\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Tour by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/tours/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tours",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Admin\",\n    \"lastName\": \"Admin\",\n    \"phoneNumber\": \"0523546988\",\n    \"email\": \"admin@test.com\",\n    \"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"TestTest\",\n    \"lastName\": \"Babparn\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin@test.com\",\n    \"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJnb3V0LWJhY2tlbmQiLCJzdWIiOiI4IiwiZXhwIjoxNzIwNDkyNTcwLCJpYXQiOjE3MjA0OTIyNzAsInJvbGVzIjoiQURNSU4ifQ.JInm9cguuDRHzDVhZnRuDe-Zxmb8VvW_yZDiU7SjyfTzVrNYQIiC6kxqi9CU4vCkJwFtlXeIsBeCkoKR6OX5x_z5nx1sUTdxOrGCO9IFQvs5w0Idq5eZsx9vWuAbzl1Bg0Tvl6ZbDvfq_m_ZGET_hsCTdcouHaIfYLzpiL8WsxpXdPZWEDEmWToooyxT25TB8HYEqpGZPsH7NI6vgjK7u7fLgZmxP1qBBeJenEgC_TcmDRv-wPjyn3vqDyMhnlL7UC2WH3gbwE-zvakQhgSl_KH8DmolpQ42A1m36N1UYAbsCFNMo15q17q5_ZPefi0tbr2aCKsgI2PKtK93YSh8XqSDkJeX1odk-o69Tezvz4CKD2BjxpORRm9mQmqV7t54Ja9lykR653TcBE9TdpIaRKRr45yPPQgyoSn0XKGW0SLU2Ur6JFyG4A9WmTmc7SphJ_KyOnDxiuw_GfkwJUaTugJDcD291niIF551Moweue8zdVg2EfrrLFP-jrl36pjzD74TOltqoZaGNqvc745vNwc53XdGBUMlN9qKvbpM92x18oZzR3vnR0ul7reHDc3rni-GR4HF0bcRoX1CywNVmV_PDSv7qQhM9eN1MNc02HZfxuvKf7JTTq4jHO7HgUxQW0VF7LKcQ3-1yl6xq93w69BsFgfVzAtZb_E-4Jf7l1M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usage\": \"ADMIN\",\n    \"resourceId\": 8,\n    \"refreshToken\": \"06e530c0-95e3-4d59-bd28-28f58409b3be\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Me",
+			"item": [
+				{
+					"name": "Get my detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJnb3V0LWJhY2tlbmQiLCJzdWIiOiI0IiwiZXhwIjoxNzIwNjY0MDMxLCJpYXQiOjE3MjA2NjM3MzEsInJvbGVzIjoiQ09OU1VNRVIifQ.IyJSySJ21KRpmkHHrRjQXWiRA_j1ZBPBHbvMQnZFePXAFjUdyk-BA0Z0oQLdbDRr349V218fz-1FBf7i9FepyzAXRRazydc1owSfmDLf59aQk7_ig2l79kP5QzY5AEAGLjIEwfLe4BuzbgafKNIfZiJH-H7BrSI_OPN0CWrlWR8zEhqk_0Rd6_B-d3R8lbRNZFv-XyoyLWAYWsXVSwr6iwFyNG4tuukveNu47ia84A1Nh9UViwaOBx9yk4YNEx20wZnklbe6ZbOQ3B3pJkaZQ6JervhHv7CId0UjWtRIMifKBZCYBGcCCwaxb7yzhuurXO6CHa5Ing_CPg4s-9xcNIx_QqLitcumUmGCrlMD3LbwJ-KbkPe9389QB_InN2rp7UWxPQyD0jodnOGlVtFQVTSf1XC4_h9qiz0DcGLf6-qJx7ZSovELb6UDgazlv5-SYUjqmEc0_zTxxfKzGfy7wlc7Qz9sQzl-AI5yU7f8Z1pKchyv2pNU1VzpltTCcg7tfxAjScGT-SSjyEhAlq0zMVzRA0GVamvVXpNxSgSAzvHIeOqD4GwheEwDzLyxL8gWl-Ztul13NGFiUCCOID3th7C-9LI1t86GQMt-sglbyE7DHY0HueicJg1IybSVJ7hJpR94mzGMAsxJhLeAl4cO75Wr2_yv3lmVkFs8QGTxeBg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wallet",
+			"item": [
+				{
+					"name": "Get Own Wallet Balance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJnb3V0LWJhY2tlbmQiLCJzdWIiOiI0IiwiZXhwIjoxNzIwODY5NjgwLCJpYXQiOjE3MjA4NjkzODAsInJvbGVzIjoiQ09OU1VNRVIifQ.RrqetXGtE86WQTUaGId0UKynVedFtzjsc2XcJx8Qug4iKcMsjQkSb0zDPRvzXmGSIkUVeiiTNsdPJFVRi55_bwzORJ08H9NGlmPEeycEeEazZsGrJMBU7g63Y6W3ZG2nzZOdHJpgGfmWGZS5a7hSGDE3e4Dxy-wxQkpWJ8sqAAmwpmKbkfU_zVhvrB7ziT5kWEWFI9BtslbmX07GsCWF7tGxCMo3qe_JhoE3mpLCc_4L9Qa6HYnGo44Uoj4HdDVkUdkCCRGuFSLSK7tBT3SlwhGUFkuSCYMiMr8rsYyCXkyWkjqoSQ-7BjVp0AjRcKczco2d8CFkUkOUWu34zgFwU5g8cYSvwWHMYddjWrKoF4N5-ENtFRSJV8vWpkpGNo9qiAL3EPsr74yO6LNBU97sdQmaT8hrgNWAPnIBzshCtKsc2mD7wPIS71FQf0DYbspFsq4Mh837vClRG-zgJkQ2M2UC-p7khXPXM6WncoZMZIpCqOECjlshXeQRjnH5YaDRBiXMvATuK3-wsakt7rxsYSD3jbhrAV01LRtMz9R_BegojzhKSnyt2cpVoKD-CJ_hPwNecGh_z_Jrkx3cJk3zj4hMPFZNQ5oe2f63GpAfvWPMJGRaLGjEKSG1MSA6hrXTb9CRD6G_PEDHtjxnSC3vx2C06eYAEgReUiaytoB3uqs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/wallet/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"wallet",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Topup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJnb3V0LWJhY2tlbmQiLCJzdWIiOiI0IiwiZXhwIjoxNzIwODcwMzQ2LCJpYXQiOjE3MjA4NzAwNDYsInJvbGVzIjoiQ09OU1VNRVIifQ.ThJBdoiDMPAhwFgucg8vT1ZJo0j2bjjxljKzuO6B0d8-R-5GyasS0TKD8Jd8XqV9K5ULuKnMaCmCAlx49_nJyh4EDRFZFn4Bja8epzCgQRZEPvBIh4Wc11cXxI4t1Y03gTEJo8u00MEecDDz7lK0H0-7peNdHndbYdoE0gD36CZEeGy6PlJllvDXWDaxAE2jXmC9lOpJsU7o7n7l4sVlyx0SvrxKFGDdF3wJX3_zj9XpgyUkDT7lm9sE3ECf7_WAMhtJN2QIs4KmVBhb99RmB8q4OeqpQCSg3QuFkV4BCp93q-FDmMLNYq6ZC7usAkciYcQ9Vfr_BUkR_T6o2PXjNAinVVkxYyoBQvjVoWpQyRzbFzXHrd1kz-vzixL-6KaaI3v8LBgx5XR2XLCEZk7uunTOUaWZ-8nxgS_8lM22R0LU4CUYmha4SozEzPoGLTU-KySVBYAzo-zSzxd6PWTr0Op4ys3amwh9963BsGFyr2UyqRilZOWEE2E7N_J-jsIBgzj6yxXE1yHGDZ1gli4Li_4gh41JxiuWVRia4xpby4g7QIgQZ4N3Lx7cyuxjpaZ2dTCH6VaxmFT3dfDRCZCAKanW2AunNC8M7q5gQc07YHLKwnq6Jw4ukN3y0T3t75fPumdbWLh4GSf4ySUbdXSXEHpgBSUXIsh47iNaDEGLIBE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "idempotent-key",
+								"value": "8ee83f97-0f15-49be-ba1e-393fe158ae58",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": \"800.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/wallet/topup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"wallet",
+								"topup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Book tour",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJnb3V0LWJhY2tlbmQiLCJzdWIiOiI0IiwiZXhwIjoxNzIwOTMwNTM2LCJpYXQiOjE3MjA5MzAyMzYsInJvbGVzIjoiQ09OU1VNRVIifQ.YPNduxfl1Wg9o1VDjCrs4S70FKAoIUcrt3LKraMkjEsuw1CV1bxKoXlzRArVhaRYt6PMFBuOyr5CUduVhUjvBYLOM8kreBBh-ekpLb2YSN4V4DmFHzxfiAyvCZSY9GC2E6QVLu2io83pElSdkeSRPmTP2-b4hWE5PmdAd_vuB03wxu31PgEc3wpUjA3rQcO4cuDVWvMtFTARYmJ_v3BKilVPuWf5rP8PXvz4sFyhH5kqGiev9GE4E0xmWOnCMOiM1v575AbogPvsURclxYwG_gKUSjXuWna-fuINrRVQnvsmbIZwtnIiGXDMQKnflsTQmDXvYXn4BdwgHlKb4eZ6GWqOV9XNfx0TZBV022DdbXqueT_rnoFmSPMgdSq_C8FucajL6MI7aLEESWUiTwsaxiDA-vvBelH_QEv0NE7kmERY_HCDBnzyhpYAGRzcZec6Zyilj-7vQvnW4N1Qg5pSaXi9auk3bHxmdxh1pwQEhF3VZyEchkXBuTyES-eKXaZs19KUJRGfws-w8QT3Eqf30DNNnVksko_NHTKa3lAvCkTbO_R1wKuPzePRH7y38WiI2lQ87PvV23bWggj86BMfm6ohGptiGJE0jDZQLVnR0GMJ2T20NttAhhFfXp8tO3_V-zOxY4ek9T9FYg0zinKwszX79s5Yq-BakQrXBFM79mM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "idempotent-key",
+								"value": "43be1a8c-6206-4cd4-9f0e-96942f359489",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 4,\n    \"tourId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/booking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJnb3V0LWJhY2tlbmQiLCJzdWIiOiI0IiwiZXhwIjoxNzIwOTMwNTM2LCJpYXQiOjE3MjA5MzAyMzYsInJvbGVzIjoiQ09OU1VNRVIifQ.YPNduxfl1Wg9o1VDjCrs4S70FKAoIUcrt3LKraMkjEsuw1CV1bxKoXlzRArVhaRYt6PMFBuOyr5CUduVhUjvBYLOM8kreBBh-ekpLb2YSN4V4DmFHzxfiAyvCZSY9GC2E6QVLu2io83pElSdkeSRPmTP2-b4hWE5PmdAd_vuB03wxu31PgEc3wpUjA3rQcO4cuDVWvMtFTARYmJ_v3BKilVPuWf5rP8PXvz4sFyhH5kqGiev9GE4E0xmWOnCMOiM1v575AbogPvsURclxYwG_gKUSjXuWna-fuINrRVQnvsmbIZwtnIiGXDMQKnflsTQmDXvYXn4BdwgHlKb4eZ6GWqOV9XNfx0TZBV022DdbXqueT_rnoFmSPMgdSq_C8FucajL6MI7aLEESWUiTwsaxiDA-vvBelH_QEv0NE7kmERY_HCDBnzyhpYAGRzcZec6Zyilj-7vQvnW4N1Qg5pSaXi9auk3bHxmdxh1pwQEhF3VZyEchkXBuTyES-eKXaZs19KUJRGfws-w8QT3Eqf30DNNnVksko_NHTKa3lAvCkTbO_R1wKuPzePRH7y38WiI2lQ87PvV23bWggj86BMfm6ohGptiGJE0jDZQLVnR0GMJ2T20NttAhhFfXp8tO3_V-zOxY4ek9T9FYg0zinKwszX79s5Yq-BakQrXBFM79mM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "idempotent-key",
+								"value": "dbc21258-12b5-43b0-883b-a3e781c5d970",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookingId\": 1,\n    \"userId\": 4,\n    \"tourId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/booking/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"booking",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Get QR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/payment/qr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"payment",
+								"qr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJnb3V0LWJhY2tlbmQiLCJzdWIiOiI0IiwiZXhwIjoxNzIwOTMwNTM2LCJpYXQiOjE3MjA5MzAyMzYsInJvbGVzIjoiQ09OU1VNRVIifQ.YPNduxfl1Wg9o1VDjCrs4S70FKAoIUcrt3LKraMkjEsuw1CV1bxKoXlzRArVhaRYt6PMFBuOyr5CUduVhUjvBYLOM8kreBBh-ekpLb2YSN4V4DmFHzxfiAyvCZSY9GC2E6QVLu2io83pElSdkeSRPmTP2-b4hWE5PmdAd_vuB03wxu31PgEc3wpUjA3rQcO4cuDVWvMtFTARYmJ_v3BKilVPuWf5rP8PXvz4sFyhH5kqGiev9GE4E0xmWOnCMOiM1v575AbogPvsURclxYwG_gKUSjXuWna-fuINrRVQnvsmbIZwtnIiGXDMQKnflsTQmDXvYXn4BdwgHlKb4eZ6GWqOV9XNfx0TZBV022DdbXqueT_rnoFmSPMgdSq_C8FucajL6MI7aLEESWUiTwsaxiDA-vvBelH_QEv0NE7kmERY_HCDBnzyhpYAGRzcZec6Zyilj-7vQvnW4N1Qg5pSaXi9auk3bHxmdxh1pwQEhF3VZyEchkXBuTyES-eKXaZs19KUJRGfws-w8QT3Eqf30DNNnVksko_NHTKa3lAvCkTbO_R1wKuPzePRH7y38WiI2lQ87PvV23bWggj86BMfm6ohGptiGJE0jDZQLVnR0GMJ2T20NttAhhFfXp8tO3_V-zOxY4ek9T9FYg0zinKwszX79s5Yq-BakQrXBFM79mM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "idempotent-key",
+								"value": "dbc21258-12b5-43b0-883b-a3e781c5d970",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookingId\": 1,\n    \"userId\": 4,\n    \"tourId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/payment/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"payment",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test Admin Access",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJnb3V0LWJhY2tlbmQiLCJzdWIiOiI4IiwiZXhwIjoxNzIwNDkyMTk0LCJpYXQiOjE3MjA0OTE4OTQsInJvbGVzIjoiQURNSU4ifQ.bnFQUBKc2QvUdfAuxRAiqvyj3wtavUFdC_qMZhCusfSjs2MBnvbsq0FLGJCLqHEw832BKGIK-8KsSsjLm8EkHrWRWwcpL9_FN_bc_W1axrQ2k45G3heQH5XEPG8wZ0l2Be9068wRqBAEilyPyFBbKuU7tAavz_XrSxVq0CZolXWDsQW_tgSZRu4GFnekY-1G7Apz_OoKBo4iHf0u70fgGc4PDb9ew-JUhSiIZ5toOw9237Pm2b9Wi3UFV9rAe3R8_HuDbKpspZcdhMbwzd2VENDQHqCt7jpHvZkmtkdu-3TmrJP_Var1TgYvWdKb490XG17o74NzaNFy54_Phfy4f61W0bjIjoCEenwAzxRlLkT9tlJIJQViEEKmDmvUrD2MhMDswpBefwSQBVhGRsOEafOcmlynUWSfYtgSdnufyHRg7rB2kFRoRYr0As0PJh1qu4B3t6JivWjhEI0VVa1xSUMhPJQ2ZPRMxt5T7mrGvG4Gj8v480bL1U_HA2ukhLjxuJXk1-OgatznGj6maxzZoTqQ-2GYjmLC2M-KykA-fuMzrEMoFALidainFfHG7XQ2zLGMMaC8FohteUvkUD9v59OM1tQBpAYKJNgFCADdHuS9AowfSAEtO-5gOuVH1mGk_4Xe2xNgiHVNs_Ozgeh7RjaFv8ujGaV3WH99K-KR0d0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
