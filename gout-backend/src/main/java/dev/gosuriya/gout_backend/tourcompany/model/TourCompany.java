@@ -5,8 +5,8 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Table("tour_company")
 public record TourCompany(
-    @Id Integer id,
-    String name,
-    String status) {
+        @Id Integer id,
+        String name,
+        String status) {
 
 }

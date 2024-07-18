@@ -9,9 +9,9 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Table("tour_company_wallet")
 public record TourCompanyWallet(
-    @Id Integer id,
-    AggregateReference<TourCompany, Integer> tourCompanyId,
-    Instant lastUpdated,
-    BigDecimal balance) {
+        @Id Integer id,
+        AggregateReference<TourCompany, Integer> tourCompanyId,
+        Instant lastUpdated,
+        BigDecimal balance) {
 
 }
